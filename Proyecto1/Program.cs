@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Ingrese un Numero:");
 string? s = Console.ReadLine();
-int i = 0;
+int i =0;
 bool result = int.TryParse(s, out i); //i=numerico
 
 if (result)
