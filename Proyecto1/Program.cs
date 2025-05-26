@@ -35,6 +35,14 @@ do
     Console.WriteLine("2. Restar");
     Console.WriteLine("3. Multiplicar");
     Console.WriteLine("4. Dividir");
+    Console.WriteLine("5. Valor Absoluto");
+    Console.WriteLine("6. Cuadrado");
+    Console.WriteLine("7. Raíz Cuadrada");
+    Console.WriteLine("8. Seno");
+    Console.WriteLine("9. Coseno");
+    Console.WriteLine("10. Parte Entera");
+    Console.WriteLine("11. Numero Maximo");
+    Console.WriteLine("12. Numero Minimo");
     Console.WriteLine("0. Salir");
 
     string? sop = Console.ReadLine();
@@ -48,7 +56,7 @@ do
         }
         else
         {
-            if (op < 5)
+            if (op < 5 || op==11|| op ==12)
             {
                 Console.WriteLine("Ingrese un Numero a pera operar:");
                 int a = 0;
@@ -77,6 +85,26 @@ do
                         case 4:
                             r = a / b;
                             break;
+                        case 11:
+                            if (a > b)
+                            {
+                                Console.WriteLine("EL numero " + a + " es mayor que el numero " + b);
+                            }
+                            else
+                            {
+                                Console.WriteLine("EL numero " + b + " es mayor que el numero " + a);
+                            }
+                            break;
+                        case 12:
+                            if (b < a)
+                            {
+                                Console.WriteLine("EL numero " + a + " es menor que el numero " + b);
+                            }
+                            else
+                            {
+                                Console.WriteLine("EL numero " + b + " es menor que el numero " + a);
+                            }
+                            break;
                     }
                     Console.WriteLine("valor del calculo realizado: " + r);
                 }
@@ -89,7 +117,49 @@ do
             }
             else
             {
-                Console.WriteLine("El valor de operacion no es compatible con ninguna operacion.");
+                if (op < 11 && op > 4)
+                {
+                    Console.WriteLine("Ingrese un Numero pera operar:");
+                    float c = 0;
+                    string? s3 = Console.ReadLine();
+                    bool result3 = float.TryParse(s3, out c); //c=numerico
+                    if (result3)
+                    {
+                        float r = 0;
+                        switch (op)
+                        {
+                            case 5:
+                                r = Math.Abs(c);
+                                break;
+                            case 6:
+                                r = c * c;
+                                break;
+                            case 7:
+                                r = (float)Math.Sqrt(c);
+                                break;
+                            case 8:
+                                r = (float)Math.Sin(c);
+                                break;
+                            case 9:
+                                r = (float)Math.Cos(c);
+                                break;
+                            case 10:
+                                string[] parteEntera = s3.Split(".");
+                                float.TryParse(parteEntera[0], out r);
+                                break;
+                        }
+                        Console.WriteLine("Resultado de la operacion es "+r);
+                    }
+                    else
+                    {
+                        Console.WriteLine("valor ingresado del numero es invalido.");
+                        op = 0;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El valor de operacion no es compatible con ninguna operacion.");
+                }
             }
         }
     }
