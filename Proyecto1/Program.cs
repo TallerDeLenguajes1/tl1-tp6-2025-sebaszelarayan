@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Ejercicio 1
-/*
+using Microsoft.VisualBasic;
+
 Console.WriteLine("Ingrese un Numero:");
 string? s = Console.ReadLine();
 int i =0;
@@ -25,7 +26,6 @@ if (result)
 {
     Console.WriteLine("El valor "+s+" no se puede transformar a entero. ");
 }
-*/
 //Ejercicio 2
 int op = 0;
 do
@@ -58,7 +58,7 @@ do
         {
             if (op < 5 || op==11|| op ==12)
             {
-                Console.WriteLine("Ingrese un Numero a pera operar:");
+                Console.WriteLine("Ingrese una Numero a para operar:");
                 int a = 0;
                 string? s1 = Console.ReadLine();
                 bool result1 = int.TryParse(s1, out a); //a=numerico
@@ -71,19 +71,24 @@ do
                 int r = 0;
                 if (resul2 && result1)
                 {
+                    string ms1="";
                     switch (op)
                     {
                         case 1:
                             r = a + b;
+                            ms1 = "La suma de  " +a+ " con " +b;
                             break;
                         case 2:
                             r = a - b;
+                            ms1 = "La resta de  " +a+ " con " +b;
                             break;
                         case 3:
                             r = a * b;
+                            ms1 = "El producto de  " +a+ " con " +b;
                             break;
                         case 4:
                             r = a / b;
+                            ms1 = "El cociente de  " +a+ " con " +b;
                             break;
                         case 11:
                             if (a > b)
@@ -106,7 +111,7 @@ do
                             }
                             break;
                     }
-                    Console.WriteLine("valor del calculo realizado: " + r);
+                    Console.WriteLine(ms1+" es igual a  " + r);
                 }
                 else
                 {
@@ -126,29 +131,35 @@ do
                     if (result3)
                     {
                         float r = 0;
+                        string ms="";
                         switch (op)
                         {
                             case 5:
                                 r = Math.Abs(c);
+                                ms = "El valor absoluto de " + c;
                                 break;
                             case 6:
                                 r = c * c;
+                                ms = "El cuadrado de " + c;
                                 break;
                             case 7:
                                 r = (float)Math.Sqrt(c);
+                                ms = "La raiz Cuadrada de " + c;
                                 break;
                             case 8:
                                 r = (float)Math.Sin(c);
+                                ms = "El Seno de " + c;
                                 break;
                             case 9:
                                 r = (float)Math.Cos(c);
+                                ms = "El Coseno de " + c;
                                 break;
                             case 10:
                                 string[] parteEntera = s3.Split(".");
                                 float.TryParse(parteEntera[0], out r);//Parte entera de la cadena s3 ingresada
                                 break;
                         }
-                        Console.WriteLine("Resultado de la operacion es "+r);
+                        Console.WriteLine(ms+" es igual a "+ r);
                     }
                     else
                     {
